@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>This is myMVVM</title>
+  <script src="myMVVM.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <input type="text" v-model='name'>
+    <p>my name is {{name}}</p>
+    <p>my age is {{age}}</p>
+    <p>my dog's age is {{age2}}</p>
+  </div>
+  <script>
+    var my=new myMVVM({
+      el:'#app',
+      data:{
+        name:'miaoyu',
+        age:26
+      },
+      computed:{
+        age2:function(){
+          return this.age-20
+        }
+      },
+      watch:{
+        name:function(newData){
+          console.log('name changed')
+        }
+      }
+    });
+    console.log(my.$options)
+  </script>
+</body>
+</html>
